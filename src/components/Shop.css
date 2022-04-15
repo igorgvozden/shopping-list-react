@@ -1,0 +1,19 @@
+.shop {
+    flex-wrap: wrap;
+    background-color: white;
+    width: 7rem;
+    height: 4rem;
+}
+
+.shop__title {
+    flex-basis: 100%;
+    text-transform: uppercase;
+    color: rgb(25, 157, 245);
+    font-size: 0.8rem;
+}
+
+.shop__text {
+    font-size: 0.7rem;
+    color: black;
+    flex-basis: 100%;
+}

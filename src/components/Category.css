@@ -1,0 +1,18 @@
+.category {
+    flex-wrap: wrap;
+    background-color: white;
+    width: 7rem;
+    height: 4.5rem;
+}
+
+.category__title {
+    flex-basis: 100%;
+    text-transform: uppercase;
+    color: rgb(234, 190, 16);
+    font-size: 0.8rem;
+}
+
+.category__text {
+    font-size: 0.7rem;
+    color: black;
+}

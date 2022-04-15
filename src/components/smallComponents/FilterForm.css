@@ -1,0 +1,23 @@
+.form-card {
+    padding: 1rem;
+    background-color: rgb(76, 76, 76);
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__label {
+    flex-basis: 40%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form__input {
+    padding: 0.3rem;
+    flex-basis: 100%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}

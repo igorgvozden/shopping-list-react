@@ -1,0 +1,19 @@
+.item {
+    flex-wrap: wrap;
+    background-color: white;
+    width: 7rem;
+    height: 4rem;
+    justify-content: space-evenly;
+}
+
+.item__title {
+    flex-basis: 100%;
+    text-transform: uppercase;
+    color: orangered;
+    font-size: 0.8rem;
+}
+
+.item__text {
+    font-size: 0.7rem;
+    color: black;
+}

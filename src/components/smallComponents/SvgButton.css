@@ -1,0 +1,27 @@
+.svg-button {
+    border: none;
+    background: rgba(255, 255, 255, 0.503);
+    border-radius: 15px;
+}
+
+.svg-button:hover {
+    cursor: pointer;
+}
+
+.svg-button__image {
+    height: 1.3rem;
+    width: 1.3rem;
+    opacity: 0.65;
+}
+
+.svg-button__span {
+    font-size: 0.7rem;
+    color: rgb(43, 43, 43);
+    display: block;
+}
+
+.svg-button--cancel,
+.svg-button--save {
+    padding: 0.5rem;
+    min-width: 3rem;
+}
