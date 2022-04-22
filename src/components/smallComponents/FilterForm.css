@@ -1,15 +1,17 @@
 .form-card {
+    width: 95%;
     padding: 1rem;
     background-color: rgb(76, 76, 76);
 }
 
 .form {
     display: flex;
+    width: 100%;
     justify-content: space-between;
 }
 
 .form__label {
-    flex-basis: 40%;
+    flex-basis: 45%;
     display: flex;
     flex-wrap: wrap;
 }

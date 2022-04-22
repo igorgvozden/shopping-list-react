@@ -1,22 +1,43 @@
+import { useState, useEffect } from 'react';
 import './AddEditForm.css';
 
 function AddEditForm (props) {
+    const [formData, setFormData] = useState({});
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('form submited')
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       
+        formData.id? props.sendHttp(props.prefilledItem.id, formData) : props.sendHttp(formData);
     };
 
+    const collectInputs = (e) => {
+        setFormData((prevState) => {
+            return {...prevState, [e.target.name]: e.target.value};
+        });   
+    };
+
+    useEffect(() => {
+        const transfromPrefilled = () => {
+            if (!props.prefilledItem.name) return;
+            const { id, name, category, quantity } = props.prefilledItem;
+            return {
+                id,
+                name,
+                category: category._id,
+                quantity
+            };
+        };
+
+        props.prefilledItem? setFormData(transfromPrefilled()) : setFormData({});
+    }, [props.prefilledItem]);
+
     return (
-        <form className='add-form'>
-            <h3 className='add-form__title'>Add New {props.addingWhat}</h3>
-            <label className='add-form__label'>Name your {props.addingWhat}: 
-                <input className='add-form__input' type='text' name='name' maxLength='15'/>
-            </label>
+        <form className='add-form' onSubmit={handleSubmit} onChange={collectInputs}>
+            <h2 className='add-form__title'>{props.doingWhat} {props.addingWhat}</h2>
 
             {props.children}
 
-            <button onClick={handleSubmit} className='add-form__submit' type='submit'>Save</button>
+            <button className='add-form__submit' disabled={false} type='submit'>Submit {props.addingWhat}</button>
         </form>
     )
 };

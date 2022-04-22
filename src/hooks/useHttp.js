@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
-const useHttp = (requestConfig, dataHandler) => {
+const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const sendRequest = async() => {
+  const sendRequest = useCallback( async (requestConfig, dataHandler) => {
     setError(null);
     setIsLoading(true);
     
@@ -17,16 +17,26 @@ const useHttp = (requestConfig, dataHandler) => {
         }
       );
 
-      if(!response.ok) throw new Error('Request failed!');
-        const data = await response.json();
+      let data;
+      
+      if (response.status === 204) {
+        data = 'Deleted!'
+      } else {
+        data = await response.json();
+      }
+      
+      if(!response.ok) {
+        throw new Error(data.message || 'Request failed!');
+      };
 
         dataHandler(data);
       } catch (error) {
+        console.log(error)
         setError(error.message || 'Ooops, Something went wrong!');
       };
 
       setIsLoading(false);
-    };
+    }, []);
 
     return {
       isLoading,

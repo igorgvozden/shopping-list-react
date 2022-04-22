@@ -11,6 +11,7 @@
 .add-form__title {
     color: rgb(26, 155, 230);
     margin-bottom: 1rem;
+    text-decoration: underline;
 }
 
 .add-form__label {
@@ -24,18 +25,24 @@
 }
 
 .add-form__input {
-    padding: 0.3rem;
-    margin: 0.3rem;
+    padding: 0.4rem;
+    margin-left: 0.3rem;
     border-radius: 15px;
+    outline: none;
+    border: none;
     font-size: 0.8rem;
+    box-shadow: rgb(179, 194, 207) 3px 3px 6px 0px inset, rgba(244, 244, 244, 0.5) -3px -3px 6px 1px inset;
+    
 }
 
 .add-form__submit {
     margin-top: 1rem;
-    border: 1px solid grey;
-    padding: 0.3rem;
+    border: none;
+    padding: 0.3rem 0.5rem;
     border-radius: 15px;
     min-width: 3rem;
+    background: rgb(6, 156, 249);
+    color: white;
 }
 
 .add-form__submit:hover {

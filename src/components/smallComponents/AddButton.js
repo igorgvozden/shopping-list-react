@@ -6,9 +6,10 @@ import './AddButton.css';
 function AddButton (props) {
 
     const handleClick = () => {
-        console.log('clicked');
         if(!props.clicked) return;
         props.clicked();
+        if (props.changeFormAction) props.changeFormAction('Add new');
+        if (props.setItemToUpdate) props.setItemToUpdate({});
     };
 
     return (

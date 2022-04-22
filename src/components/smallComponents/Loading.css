@@ -1,4 +1,8 @@
 .loading {
     color: black;
     font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    color: white;
 }

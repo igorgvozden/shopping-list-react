@@ -4,9 +4,17 @@ function SvgButton (props) {
     const classes = 'svg-button ' + props.className;
 
     const handleClick = () => {
-        console.log('clicked');
+        // general logic
         if(!props.clicked) return;
-        props.clicked();
+        //list related logic
+        if (props.listName) props.clicked(props.listName, props.itemId)
+        else props.clicked();
+        
+        // item related logic
+        if (props.changeFormAction) props.changeFormAction('Edit');
+        if (props.itemData) {
+            props.collectDataToUpdate(props.itemData);
+        };
     };
 
     return(

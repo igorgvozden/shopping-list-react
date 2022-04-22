@@ -3,7 +3,7 @@ import Card from '../Card';
 import './FilterForm.css';
 
 function FilterForm (props) {
-    const {categories, addFiltered} = props;
+    const { shops, addFiltered } = props;
 
     const collectShop = (event) => {
         event.preventDefault();
@@ -13,15 +13,11 @@ function FilterForm (props) {
 
     return(
         <Card className='form-card'>
-            <form className='form' onChange={collectShop}>
-                <label className='form__label'>Filter by Shop:
-                    <input className='form__input' type='text' name='shop' />
-                </label>
-
-                <label className='form__label'>Filter by Category:
-                    <select className='form__input'  name='category'>
-                        <option defaultValue></option>
-                        {categories.map((category, i) => <option key={i}>{category.name}</option>)}
+            <form className='form'>
+                <label className='form__label'>Filter your Lists by Shop:
+                    <select className='form__input'  name='shop' onChange={collectShop}>
+                        <option defaultValue value=''>All</option>
+                        {shops.map((shop, i) => <option key={i}>{shop.name}</option>)}
                     </select>
                 </label>
             </form>
