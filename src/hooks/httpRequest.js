@@ -1,6 +1,6 @@
 const httpRequest = (urlEndPoint, method, formData, requestHandler, requestCallback) => {
     const config = {
-        url: `http://localhost:3000/${urlEndPoint}`,
+        url: `http://localhost:80/${urlEndPoint}`,
         method,
         headers: {
             'Access-Control-Allow-Credentials': true,

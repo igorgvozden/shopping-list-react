@@ -16,7 +16,7 @@ function ListContainer (props) {
 
     const submitItem = (formData) => {
         const itemConfig = {
-            url: 'http://localhost:3000/add-to-list',
+            url: 'http://localhost:80/add-to-list',
             method: 'POST',
             headers: {
               'Access-Control-Allow-Credentials': true,
@@ -30,7 +30,7 @@ function ListContainer (props) {
 
     const removeItem = (listName, itemId) => {
         const itemConfig = {
-            url: 'http://localhost:3000/remove-from-list',
+            url: 'http://localhost:80/remove-from-list',
             method: 'DELETE',
             headers: {
               'Access-Control-Allow-Credentials': true,

@@ -11,7 +11,7 @@ function AddListContainer (props) {
 
     const createList = (formData) => {
         const listConfig = {
-            url: 'http://localhost:3000',
+            url: 'http://localhost:80',
             method: 'POST',
             headers: {
               'Access-Control-Allow-Credentials': true,

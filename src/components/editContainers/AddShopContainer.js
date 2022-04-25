@@ -9,7 +9,7 @@ function AddShopContainer (props) {
 
     /////////////////// http 
     const shopConfig = {
-        url: 'http://localhost:3000/shops',
+        url: 'http://localhost:80/shops',
         method: 'POST',
         headers: {
           'Access-Control-Allow-Credentials': true,

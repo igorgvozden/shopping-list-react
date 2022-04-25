@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+------------------------------------------------
+DOCKER
+------------------------------------------------
+i've named image: shoppig-list-react
+container: frontend
+
+docker run --name frontend --rm -d -p 3000:3000 -it shopping-list-react

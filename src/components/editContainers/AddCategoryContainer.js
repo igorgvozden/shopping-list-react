@@ -9,7 +9,7 @@ function AddCategoryContainer (props) {
 
     /////////////////// http 
     const categoryConfig = {
-        url: 'http://localhost:3000/categories',
+        url: 'http://localhost:80/categories',
         method: 'POST',
         headers: {
           'Access-Control-Allow-Credentials': true,

@@ -16,7 +16,7 @@ function AddItemContainer (props) {
     /////////////////// http 
     const addItem = (formData) => {
         const itemConfig = {
-            url: 'http://localhost:3000/items',
+            url: 'http://localhost:80/items',
             method: 'POST',
             headers: {
               'Access-Control-Allow-Credentials': true,
