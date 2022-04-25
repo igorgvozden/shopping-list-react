@@ -15,6 +15,7 @@ import AddListContainer from './components/editContainers/AddListContainer';
 import './App.css';
 
 import useHttp from './hooks/useHttp';
+import SERVER_URL from './config';
 
 function App () {
   const [addListForm, setAddListForm] = useState(false);
@@ -28,24 +29,24 @@ function App () {
   ///////////////////////////////
   
   const { sendRequest: getCategories} = useHttp();
-  const updateCategories = () => getCategories({url: 'http://localhost:80/categories'}, (data) => setCategories(data.categories));
+  const updateCategories = () => getCategories({url: `${SERVER_URL}/categories`}, (data) => setCategories(data.categories));
 
   const { sendRequest: getShops} = useHttp();
-  const updateShops = () => getShops({url: 'http://localhost:80/shops'}, (data) => setShops(data.shops));
+  const updateShops = () => getShops({url: `${SERVER_URL}/shops`}, (data) => setShops(data.shops));
 
   const { sendRequest: getItems} = useHttp();
-  const updateItems = () => getItems({url: 'http://localhost:80/items'}, (data) => setItems(data.items));
+  const updateItems = () => getItems({url: `${SERVER_URL}/items`}, (data) => setItems(data.items));
 
   const { isLoading, error, sendRequest: getLists } = useHttp();
-  const updateLists = () => getLists({url: 'http://localhost:80'}, (data) => setLists(data.lists));
+  const updateLists = () => getLists({url: `${SERVER_URL}`}, (data) => setLists(data.lists));
 
   ///////////////////////////////
 
   useEffect(() => {
-    getShops({url: 'http://localhost:80/shops'}, (data) => setShops(data.shops));
-    getCategories({url: 'http://localhost:80/categories'}, (data) => setCategories(data.categories));
-    getLists({url: 'http://localhost:80'}, (data) => setLists(data.lists));
-    getItems({url: 'http://localhost:80/items'}, (data) => setItems(data.items));
+    getShops({url: `${SERVER_URL}/shops`}, (data) => setShops(data.shops));
+    getCategories({url: `${SERVER_URL}/categories`}, (data) => setCategories(data.categories));
+    getLists({url: `${SERVER_URL}`}, (data) => setLists(data.lists));
+    getItems({url: `${SERVER_URL}/items`}, (data) => setItems(data.items));
   }, [getLists, getShops, getCategories, getItems]);
   
   // FILTER LISTS

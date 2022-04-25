@@ -4,6 +4,7 @@ import Card from "./Card";
 import List from "./List";
 
 import useHttp from "../hooks/useHttp";
+import SERVER_URL from '../config';
 
 import './ListContainer.css';
 
@@ -16,7 +17,7 @@ function ListContainer (props) {
 
     const submitItem = (formData) => {
         const itemConfig = {
-            url: 'http://localhost:80/add-to-list',
+            url: `${SERVER_URL}/add-to-list`,
             method: 'POST',
             headers: {
               'Access-Control-Allow-Credentials': true,
@@ -30,7 +31,7 @@ function ListContainer (props) {
 
     const removeItem = (listName, itemId) => {
         const itemConfig = {
-            url: 'http://localhost:80/remove-from-list',
+            url: `${SERVER_URL}/remove-from-list`,
             method: 'DELETE',
             headers: {
               'Access-Control-Allow-Credentials': true,

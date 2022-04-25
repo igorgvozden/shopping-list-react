@@ -5,18 +5,17 @@ import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
 
 import useHttp from "../../hooks/useHttp";
+import SERVER_URL from "../../config";
 
 function AddItemContainer (props) {
     const { isLoading, error, sendRequest: createItem } = useHttp();
     const [controlledItem, setControlledItem] = useState({})
     // console.log('we want to update,', props.itemToUpdate);
-
-    
-    
+ 
     /////////////////// http 
     const addItem = (formData) => {
         const itemConfig = {
-            url: 'http://localhost:80/items',
+            url: `${SERVER_URL}/items`,
             method: 'POST',
             headers: {
               'Access-Control-Allow-Credentials': true,

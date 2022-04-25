@@ -3,13 +3,14 @@ import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
 
 import useHttp from "../../hooks/useHttp";
+import SERVER_URL from "../../config";
 
 function AddCategoryContainer (props) {
     const { isLoading, error, sendRequest: createCategory } = useHttp();
 
     /////////////////// http 
     const categoryConfig = {
-        url: 'http://localhost:80/categories',
+        url: `${SERVER_URL}/categories`,
         method: 'POST',
         headers: {
           'Access-Control-Allow-Credentials': true,

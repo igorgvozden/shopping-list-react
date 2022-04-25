@@ -3,6 +3,7 @@ import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
 
 import useHttp from "../../hooks/useHttp";
+import SERVER_URL from "../../config";
 
 function AddListContainer (props) {
     const { items, shops } = props;
@@ -11,7 +12,7 @@ function AddListContainer (props) {
 
     const createList = (formData) => {
         const listConfig = {
-            url: 'http://localhost:80',
+            url: `${SERVER_URL}`,
             method: 'POST',
             headers: {
               'Access-Control-Allow-Credentials': true,

@@ -3,13 +3,14 @@ import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
 
 import useHttp from "../../hooks/useHttp";
+import SERVER_URL from "../../config";
 
 function AddShopContainer (props) {
     const { isLoading, error, sendRequest: createShop } = useHttp();
 
     /////////////////// http 
     const shopConfig = {
-        url: 'http://localhost:80/shops',
+        url: `${SERVER_URL}/shops`,
         method: 'POST',
         headers: {
           'Access-Control-Allow-Credentials': true,
