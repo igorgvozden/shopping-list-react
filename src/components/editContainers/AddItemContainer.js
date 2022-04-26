@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "../Card";
 import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
+import InfoModal from '../smallComponents/InfoModal';
 
 import useHttp from "../../hooks/useHttp";
 import SERVER_URL from "../../config";
@@ -25,7 +26,7 @@ function AddItemContainer (props) {
             body: formData
         };
         
-        createItem(itemConfig, () => props.updateItems());
+        createItem(itemConfig, () => [props.updateItems(), props.cancelClicked()]);
     };
     
     //////////////////
@@ -58,8 +59,8 @@ function AddItemContainer (props) {
                 </select>
                 </label>
             </AddEditForm>
-            {isLoading && <p>Please wait...</p>}
-            {error && <p>{error}</p>}
+            {isLoading && <InfoModal text={'Please wait ...'}/>}
+            {error && <InfoModal text={error}/>}
             <SvgButton clicked={props.cancelClicked} text='Cancel' className='svg-button--cancel'/>
         </Card>
     );

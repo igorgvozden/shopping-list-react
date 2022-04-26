@@ -20,7 +20,7 @@ const useHttp = () => {
       let data;
       
       if (response.status === 204) {
-        data = 'Deleted!'
+        data = 'Deleted!';
       } else {
         data = await response.json();
       }

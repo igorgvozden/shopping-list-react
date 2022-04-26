@@ -1,0 +1,23 @@
+.modal-info-text {
+    padding: 2rem 1rem;
+    border-left: 4px solid rgb(0, 119, 255);
+    background-color: rgba(70, 190, 255, 0.71);
+    color: white;
+    position: absolute;
+    font-weight: 600;
+    top: 10%;
+    right: 0;
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+    transform: translateX(100%);
+    animation-name: slide-in;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes slide-in {
+    0%   {transform: translateX(100%);}
+    25%  {transform: translateX(0%)}
+    50%  {transform: translateX(0%)}
+    75%  {transform: translateX(100%)}
+    100% {transform: translateX(100%)}
+  }

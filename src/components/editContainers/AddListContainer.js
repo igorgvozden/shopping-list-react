@@ -1,6 +1,7 @@
 import Card from "../Card";
 import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
+import InfoModal from '../smallComponents/InfoModal';
 
 import useHttp from "../../hooks/useHttp";
 import SERVER_URL from "../../config";
@@ -22,7 +23,7 @@ function AddListContainer (props) {
             body: formData
         };
         console.log(formData)
-        sendRequest(listConfig, () => props.updateLists());
+        sendRequest(listConfig, () => [props.updateLists(), props.cancelClicked()]);
       };
 
     return(
@@ -39,8 +40,8 @@ function AddListContainer (props) {
             You will be able to add items to your List once you have created it.
             </label>
             </AddEditForm>
-            {error && <p>{error}</p>}
-            {isLoading && <p>Please Wait ...</p>}
+            {isLoading && <InfoModal text={'Please wait ...'}/>}
+            {error && <InfoModal text={error}/>}
             <SvgButton clicked={props.cancelClicked} text='Cancel' className='svg-button--cancel'/>
         </Card>
     );

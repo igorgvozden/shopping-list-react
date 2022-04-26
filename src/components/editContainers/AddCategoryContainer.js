@@ -1,6 +1,7 @@
 import Card from "../Card";
 import SvgButton from "../smallComponents/SvgButton";
 import AddEditForm from "./AddEditForm";
+import InfoModal from '../smallComponents/InfoModal';
 
 import useHttp from "../../hooks/useHttp";
 import SERVER_URL from "../../config";
@@ -23,7 +24,7 @@ function AddCategoryContainer (props) {
 
     const submitCategory = (formData) => {
         categoryConfig.body = formData;
-        createCategory(categoryConfig, () => props.updateCategories());
+        createCategory(categoryConfig, () => [props.updateCategories(), props.cancelClicked()]);
     };
 
     return(
@@ -36,8 +37,8 @@ function AddCategoryContainer (props) {
                     <input className='add-form__input' type='text' name='description' maxLength='50' required={true}/>
                 </label>
             </AddEditForm>
-                {isLoading && <p>Please wait...</p>}
-                {error && <p>{error}</p>}
+                {isLoading && <InfoModal text={'Please wait ...'}/>}
+                {error && <InfoModal text={error}/>}
             <SvgButton clicked={props.cancelClicked} text='Cancel' className='svg-button--cancel'/>
         </Card>
     );

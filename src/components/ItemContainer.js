@@ -18,7 +18,7 @@ function ItemContainer (props) {
   ////////////////////////////// http
 
   const submitPatch = (itemId, formData) => {
-    httpRequest(`items/${itemId}`, 'PATCH', formData, handleRequest, props.updateItems);
+    httpRequest(`items/${itemId}`, 'PATCH', formData, handleRequest, ()=>[props.updateItems(), props.updateLists(), cancelButtonClick()]);
     // const updateItemConfig = {
     //   url: `http://localhost:3000/items/${itemId}`,
     //   method: 'PATCH',
